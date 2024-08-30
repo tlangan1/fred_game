@@ -2,9 +2,7 @@ import { treasure } from "./game_nodes.js";
 
 export function showTreasure() {
   var treasureListElement = document.getElementById("treasure");
-  for (ele in treasureListElement.children) {
-    ele.remove();
-  }
+  treasureListElement.replaceChildren();
 
   if (treasure.length == 0) {
     document.createElement("li").innerHTML = "No treasure yet";
@@ -12,8 +10,9 @@ export function showTreasure() {
     return;
   }
 
-  for (item in treasure) {
-    document.createElement("li").innerHTML = item;
+  treasure.forEach((item) => {
+    var ele = document.createElement("li");
+    ele.innerHTML = item;
     treasureListElement.appendChild(ele);
-  }
+  });
 }
