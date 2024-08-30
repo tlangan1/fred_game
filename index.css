@@ -10,3 +10,19 @@
 #restart.show {
   display: block;
 }
+
+#treasure {
+  list-style-type: none;
+}
+
+#treasure img {
+  width: 1.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+#treasure div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}

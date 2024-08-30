@@ -6,7 +6,7 @@
 //           , ...]}
 
 // treasure keys
-var eleven_pieces_of_iron = "eleven pieces of iron";
+var six_pieces_of_iron = "six pieces of iron";
 var gold = "gold";
 var amethyst_shards = "amethyst shards";
 var diamonds = "diamonds";
@@ -300,7 +300,7 @@ export var game_nodes = {
       {
         answer: "Open the chest",
         node: nintendo_game_minecraft_with_chest_1,
-        treasure: eleven_pieces_of_iron,
+        treasure: six_pieces_of_iron,
       },
       { answer: "Leave it", node: nintendo_game_minecraft_with_chest_1 },
     ],
@@ -336,13 +336,13 @@ export var game_nodes = {
       { answer: "Hyper jump to phobos", node: arrive_on_phobos },
     ],
   },
-  exit_the_game: { question_preface: "Goodbye!", answers: [] },
+  exit_the_game: { question_preface: "Sorry to see you go.", answers: [] },
 };
 
 export var beginningNode = game_nodes.beginning;
 
 export var winning_treasure = [
-  eleven_pieces_of_iron,
+  six_pieces_of_iron,
   gold,
   amethyst_shards,
   diamonds,
