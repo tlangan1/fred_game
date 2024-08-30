@@ -1,17 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <h1>The Crazy Fred Game</h1>
-        <h2>Accumulated Treasure</h2>       
-        <ul id="treasure">
-            <li>Nothing Yet</li>
-        </ul>
+      <h1>The Crazy Fred Game</h1>
+      <h2>Accumulated Treasure</h2>
+      <ul id="treasure"></ul>
+
+      <p id="question"></p>
+      <ul id="answers"></ul>
     </main>
-</body>
+  </body>
+  <script type="module">
+    import {
+      beginningNode,
+      game_nodes,
+      logGameNodes,
+    } from "./src/game_nodes.js";
+    import { showTreasure } from "./src/show_treasure.js";
+    var answersElement = document.getElementById("answers");
+
+    showNode(beginningNode);
+    // logGameNodes();
+    // showTreasure();
+
+    export function showNode(node) {
+      const questionElement = document.getElementById("question");
+      questionElement.innerHTML = `${node.question_preface} <br /> What would you like to do?`;
+      answersElement.replaceChildren();
+      node.answers.forEach(showAnswerItem);
+    }
+
+    function showAnswerItem(answerItem) {
+      var answer = document.createElement("li");
+      answer.innerHTML = answerItem.answer;
+      answer.addEventListener("click", () => {
+        showNode(game_nodes[answerItem.node.replaceAll(" ", "_")]);
+        if (answerItem.treasure) {
+          treasure.push(answerItem.treasure);
+          showTreasure();
+        }
+      });
+      answersElement.appendChild(answer);
+
+      //   console.log(`      answer: ${answerItem.answer}`);
+      //   console.log(`         destination node: ${answerItem.node}`);
+      //   console.log(`         optional treasure: ${answerItem.treasure}`);
+    }
+  </script>
 </html>

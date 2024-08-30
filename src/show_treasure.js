@@ -1,15 +1,19 @@
-import game_nodes from treasure
+import { treasure } from "./game_nodes.js";
 
-function showTreasure() {
-    var treasure = document.getElementById('treasure');
+export function showTreasure() {
+  var treasureListElement = document.getElementById("treasure");
+  for (ele in treasureListElement.children) {
+    ele.remove();
+  }
 
-    if len(treasure) == 0:
-        document.createElement('li').innerHTML = 'No treasure yet'
-    return
+  if (treasure.length == 0) {
+    document.createElement("li").innerHTML = "No treasure yet";
+    treasureListElement.appendChild(ele);
+    return;
+  }
 
-    for t in treasure:
-        window.addstr(t + '\n')
-
-    window.addstr('***************************')
-    return
+  for (item in treasure) {
+    document.createElement("li").innerHTML = item;
+    treasureListElement.appendChild(ele);
+  }
 }
