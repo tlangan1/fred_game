@@ -5,7 +5,8 @@ export function showTreasure() {
   treasureListElement.replaceChildren();
 
   if (treasure.length == 0) {
-    document.createElement("li").innerHTML = "No treasure yet";
+    var ele = document.createElement("li");
+    ele.innerHTML = "No treasure found!";
     treasureListElement.appendChild(ele);
     return;
   }

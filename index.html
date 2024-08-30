@@ -15,6 +15,7 @@
 
       <h3 id="question"></h3>
       <ul id="answers"></ul>
+      <button id="restart" class="hide">Restart</button>
     </main>
   </body>
   <script type="module">
@@ -33,7 +34,14 @@
 
     export function showNode(node) {
       const questionElement = document.getElementById("question");
-      questionElement.innerHTML = `${node.question_preface} <br /> What would you like to do?`;
+      questionElement.innerHTML = `${node.question_preface} <br />`;
+      if (node.answers.length === 0) {
+        questionElement.innerHTML += "Goodbye!";
+        document.getElementById("restart").classList.remove("hide");
+        document.getElementById("restart").classList.add("show");
+      } else {
+        questionElement.innerHTML += "What would you like to do?";
+      }
       answersElement.replaceChildren();
       node.answers.forEach(showAnswerItem);
     }
@@ -49,10 +57,14 @@
         }
       });
       answersElement.appendChild(answer);
-
-      //   console.log(`      answer: ${answerItem.answer}`);
-      //   console.log(`         destination node: ${answerItem.node}`);
-      //   console.log(`         optional treasure: ${answerItem.treasure}`);
     }
+
+    document.getElementById("restart").addEventListener("click", () => {
+      treasure.length = 0;
+      showNode(beginningNode);
+      showTreasure();
+      document.getElementById("restart").classList.remove("show");
+      document.getElementById("restart").classList.add("hide");
+    });
   </script>
 </html>
