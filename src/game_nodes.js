@@ -30,6 +30,7 @@ var arrive_in_mario_land = "arrive in mario land";
 var explore_mario_land = "explore mario land";
 var enter_deep_space = "enter deep space";
 var explore_deep_space = "explore deep space";
+var admiring_your_amethyst = "admiring your amethyst";
 var enter_deep_deep_space = "enter deep deep space";
 var enter_nintendo = "enter nintendo";
 var enter_nintendo_game_among_us = "enter nintendo game among us";
@@ -202,8 +203,19 @@ export var game_nodes = {
     answers: [
       {
         answer: "Collect the shards of amethyst",
-        node: explore_deep_space,
+        node: admiring_your_amethyst,
         treasure: amethyst_shards,
+      },
+      { answer: "Go back to the beginning", node: beginning },
+      { answer: "Go deeper into space", node: enter_deep_deep_space },
+    ],
+  },
+  admiring_your_amethyst: {
+    question_preface: "You are admiring your shards of amethyst.",
+    answers: [
+      {
+        answer: "Hyperlink to the cave",
+        node: just_inside_the_cave,
       },
       { answer: "Go back to the beginning", node: beginning },
       { answer: "Go deeper into space", node: enter_deep_deep_space },
